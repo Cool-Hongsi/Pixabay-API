@@ -1,0 +1,116 @@
+@mixin crossbrowserTransformX($value){
+    transform: translateX($value);
+    -webkit-transform: translateX($value);
+    -moz-transform: translateX($value);
+    -ms-transform: translateX($value);
+}
+
+@mixin crossbrowserTransformY($value){
+    transform: translateY($value);
+    -webkit-transform: translateY($value);
+    -moz-transform: translateY($value);
+    -ms-transform: translateY($value);
+}
+
+@mixin crossbrowserTransition($target, $time, $effect){
+    transition: $target $time $effect;
+    -webkit-transition: $target $time $effect;
+    -moz-transition: $target $time $effect;
+    -ms-transition: $target $time $effect;
+}
+
+.pixabayContainer{
+    width: 100%;
+    margin: 70px 0 0 0;
+    
+    .form{
+        width: 100%;
+        position: relative;
+        height: 100px;
+        overflow: hidden;
+        text-align: left;
+    }
+
+    .form input{
+        width: 50%;
+        height: 100%;
+        color: #595f6e;
+        padding-top: 40px;
+        border: none;
+        outline: none;
+    }
+
+    .form label{
+        position: absolute;
+        bottom: 0px;
+        left: 0%;
+        width: 50%;
+        height: 100%;
+        pointer-events: none;
+        border-bottom: 1px solid black;
+    }
+
+    .form label::after{
+        content: "";
+        position: absolute;
+        height: 100%;
+        left: 0px;
+        bottom: -1px;
+        width: 100%;
+        border-bottom: 3px solid #5fa8d3;
+        @include crossbrowserTransformX(-100%);
+        @include crossbrowserTransition(transform, .1s, ease);
+    }
+
+    .content-search{
+        position: absolute;
+        bottom: 5px;
+        left: 0px;
+        @include crossbrowserTransition(all, .1s, ease);
+    }
+
+    .form input:focus + .label-search .content-search,
+    .form input:valid + .label-search .content-search{
+        @include crossbrowserTransformY(-140%);
+        font-size: 14px;
+        color: #5fa8d3;
+    }
+    
+    .form input:focus .label-search::after,
+    .form input:valid + .label-search::after{
+        @include crossbrowserTransformX(0%);
+    }
+
+    .search-btn{
+        margin-left: 20px;
+    }
+
+    .btn-section{
+        height: 100px;
+        padding-top: 50px;
+        text-align: right;
+
+        .toggle-btn{
+            margin-left: 30px;
+        }
+    }
+
+    .result-section{
+        margin-top: 70px;
+    }
+
+}
+
+@media screen and (max-width: 425px){
+    .form input{
+        width: 100%;
+    }
+
+    .form label{
+        width: 100%;
+    }
+
+    .search-btn{
+        margin-left: 0px;
+    }
+}
