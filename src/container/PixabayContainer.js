@@ -38,7 +38,7 @@ class PixabayContainer extends Component{
         const { getPictures } = this.props;
         
         /* ################# Insert your Pixabay API Key in second parameter ################# */
-        getPictures(content, "");
+        getPictures(content, "13980351-a4740f26731c474783d4dd29c");
     };
 
     /* Receive the search content from input tag */
