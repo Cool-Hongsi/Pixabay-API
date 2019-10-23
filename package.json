@@ -1,7 +1,7 @@
 {
   "name": "pixabay",
   "version": "0.1.0",
-  "homepage": "https://github.com/Cool-Hongsi/Pixabay-API",
+  "homepage": "https://Cool-Hongsi.github.io/Pixabay-API",
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
